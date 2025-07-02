@@ -1,0 +1,66 @@
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#leftCol {
+    padding-left: 25px;
+    padding-right: 2px;
+}
+
+/*STILE SCROLL-BAR*/
+.scrollLeftSection {
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 70vh;
+}
+
+.scrollLeftSection::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scrollLeftSection::-webkit-scrollbar-thumb {
+    background-color: #686868;
+}
+
+#middleCol {
+    overflow: auto;
+    flex-grow: 1;
+    max-height: 100vh;
+}
+
+#middleCol::-webkit-scrollbar {
+    width: 12px;
+}
+
+#middleCol::-webkit-scrollbar-thumb {
+    background-color: #686868;
+}
+/*FINE STILE SCROLL-BAR*/
+
+/*STILE TENDINA AMICI (DESTRA)*/
+#openRightCol {
+    background-color: transparent;
+    border: none;
+}
+
+#openRightCol {
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    z-index: 1000;
+    display: none;
+}
+
+
+/*STILE FOOTER*/
+footer {
+    z-index: 10 !important;
+    color: white !important;
+    text-align: center !important;
+    height: 120px !important;
+    position: absolute !important;
+    margin-top: 90vh !important;
+    background-color: rgb(34, 33, 33) !important;
+    border-top: solid 0.1px grey !important;
+}

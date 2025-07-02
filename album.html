@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Album</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"
+        defer></script>
+    <script src="album.js" defer></script>
+    <script src="sharedFiles/shared.js" defer></script>
+    <link rel="stylesheet" href="album.css">
+    <link rel="stylesheet" href="sharedFiles/shared.css">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!--COLONNA SINISTRA-->
+
+            <nav class="col-lg-3 bg-black text-white" id="leftCol" style="min-height: 100vh;">
+                <div class="menuSection">
+                    <img src="assets/menu_9oxo0y8h65z5_64.png" alt="menu" style="margin-left: -20px; cursor: pointer;">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Home</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/seo_nuil7ltlrho1_64.png" alt="search" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Cerca</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-5">
+                        <img src="assets/library_i75r8dkewj7a_64.png" alt="library" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">La tua libreria</span>
+                    </div>
+
+
+                    <!--SPAZIO-->
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/add_button_8p3kufcryk5l_64.png" alt="add" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Crea playlist</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/favorite_b4ngxjrmu8gc_64.png" alt="favourites" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Brani che ti piacciono</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/book_mark_o3lf1sgsgzpe_64.png" alt="bookmark" width="22px">
+                        <span class="fw-bold" style="font-size: small; cursor: pointer;">I tuoi episodi</span>
+                    </div>
+                    <hr style="width: 95%;">
+                </div>
+
+                <!--SEZIONE SCROLL-->
+
+                <div class="scrollLeftSection">
+                    <p>Like a Rolling Stone - Bob Dylan (1965)</p>
+                    <p>(I Can't Get No) Satisfaction - Rolling Stones (1965)</p>
+                    <div class="d-flex">
+                        <p>Imagine - John Lennon (1971)</p>
+                        <img src="assets/music_78qpg1p7g78l_16.png" alt="icon" height="25px" width="25px">
+                        <img src="assets/rocket_bll8uocy9rxq_16.png" alt="icon" height="25px" width="25px">
+                    </div>
+                    
+                    <p>What's Going On - Marvin Gaye (1971)</p>
+                    <div class="d-flex gap-2">
+                        <p>Respect - Aretha Franklin (1967)</p>
+                        <img src="assets/fast_7obzb0oxv1qp_16.png" alt="icon" height="25px" width="25px">
+                    </div>
+                    <p>Good Vibrations - The Beach Boys (1966)</p>
+                    <p>Johnny B. Goode - Chuck Berry (1958)</p>
+                    <p>Hey Jude - The Beatles (1968)</p>
+                    <div class="d-flex">
+                        <p>Smells Like Teen Spirit - Nirvana (1991)</p>
+                        <img src="assets/ball_silg6fh4nu2c_16.png" alt="icon" height="25px" width="25px">
+                    </div>
+                    <p>What'd I Say - Ray Charles (1959)</p>
+                    <p>My Generation - The Who (1965)</p>
+                    <p>A Change Is Gonna Come - Sam Cooke (1964)</p>
+                    <p>Yesterday - The Beatles (1965)</p>
+                    <p>Blowin' in the Wind - Bob Dylan (1963)</p>
+                    <p>London Calling - The Clash (1979)</p>
+                    <div class="d-flex">
+                        <p>I Want to Hold Your Hand - The Beatles (1963)</p>
+                        <img src="assets/bonfire_ppobp1re1tjy_16.png" alt="icon" width="25px" height="25px">
+                    </div>
+                    
+                    <p>Purple Haze - The Jimi Hendrix Experience (1967)</p>
+                    <p>Maybellene - Chuck Berry (1955)</p>
+                    <p>Hound Dog - Elvis Presley (1956)</p>
+                    <p>Let It Be - The Beatles (1970)</p>
+                    <div class="d-flex">
+                        <p>Born to Run - Bruce Springsteen (1975)</p>
+                        <img src="assets/fast_e03oo1mp6nu5_16.png" alt="icon" width="25px" height="25px">
+                    </div>
+                    
+                    <p>Be My Baby - The Ronettes (1963)</p>
+                    <p>In My Life - The Beatles (1965)</p>
+                    <p>People Get Ready - The Impressions (1965)</p>
+                    <p>God Only Knows - The Beach Boys (1966)</p>
+                    <p>(Sittin' on) the Dock of the Bay - Otis Redding (1968)</p>
+                    <p>Layla - Derek and the Dominos (1971)</p>
+                    <p>A Day in the Life - The Beatles (1967)</p>
+                    <p>Help! - The Beatles (1965)</p>
+                    <p>I Walk the Line - Johnny Cash (1956)</p>
+                    <p>Stairway to Heaven - Led Zeppelin (1971)</p>
+                    <p>Sympathy for the Devil - The Rolling Stones (1968)</p>
+                    <p>River Deep - Mountain High - Ike & Tina Turner (1966)</p>
+                    <p>You've Lost That Lovin' Feelin' - The Righteous Brothers (1965)</p>
+                    <p>Light My Fire - The Doors (1966)</p>
+                    <p>One - U2 (1992)</p>
+                </div>
+            </nav>
+
+            <!--COLONNA CENTRALE-->
+
+            <main class="col-lg-7" id="middleCol">
+
+                <!--CONTENUTO PRINCIPALE-->
+
+            </main>
+
+            <!--COLONNA DESTRA-->
+
+            <aside class="col-lg-2 bg-black text-white" id="rightCol">
+                <!--Primo contenitore TITOLO ICONE-->
+                <div class="py-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="fw-bold my-0">Attività amici</h5>
+                    </div>
+                    <div>
+                        <img src="assets/add_friend_j2yr3kp2bsy6_32.png" alt="close" style="cursor: pointer;">
+                        <img id="closeRightCol" src="https://cdn-icons-png.flaticon.com/512/458/458595.png" alt="close"
+                            style="cursor:pointer; width:24px; height:24px;">
+                    </div>
+                </div>
+                <!--Secondo contenitore LISTA AMICI-->
+                <div class="mt-4">
+
+                    <div class="d-flex justify-content-around my-4">
+
+                        <div>
+                            <img src="assets/user_phzuw0wqq7wa_32.png" alt="user" width="42px">
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold">Charlie Hookham</h6>
+                            <p class="small my-1">in Camera &bull; Yumi Zouma</p>
+                            <p class="small my-1"><img src="assets/lp_s9tsieegasdi_16.png" alt="record"> EP III</p>
+                        </div>
+
+                        <span class="small">
+                            4 ore
+                        </span>
+
+                    </div>
+
+                    <div class="d-flex justify-content-around my-5">
+
+                        <div>
+                            <img src="assets/user_phzuw0wqq7wa_32.png" alt="user" width="42px">
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold">lightdark02</h6>
+                            <p class="small my-1">Aimed to Kill &bull; Jade LeMac</p>
+                            <p class="small my-1"><img src="assets/lp_s9tsieegasdi_16.png" alt="record"> Aimed to Kill
+                            </p>
+                        </div>
+
+                        <span class="small">
+                            8 ore
+                        </span>
+
+                    </div>
+
+                    <div class="d-flex justify-content-around my-5">
+
+                        <div>
+                            <img src="assets/user_phzuw0wqq7wa_32.png" alt="user" width="42px">
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold">Valeria Traverso</h6>
+                            <p class="small my-1">New Kings &bull; Sleeping Wolf</p>
+                            <p class="small my-1"><img src="assets/music_78qpg1p7g78l_16.png" alt="music"> Twint Badass
+                                mood</p>
+                        </div>
+
+                        <span class="small">
+                            3 giorni
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <footer>
+
+                <h1>Sono un titolo di prova</h1>
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+    <button id="openRightCol" class="btn btn-secondary">
+        <img src="assets/add_friend_j2yr3kp2bsy6_32.png" alt="friends">
+    </button>
+
+</body>
+
+</html>
