@@ -26,7 +26,8 @@ body {
 #middleCol {
     overflow: auto;
     flex-grow: 1;
-    max-height: 100vh;
+    max-height: 93vh;
+    /*modificata l'altezza per mostrare tutto il contenuto centrale*/
 }
 
 #middleCol::-webkit-scrollbar {
@@ -36,6 +37,7 @@ body {
 #middleCol::-webkit-scrollbar-thumb {
     background-color: #686868;
 }
+
 /*FINE STILE SCROLL-BAR*/
 
 /*STILE TENDINA AMICI (DESTRA)*/
@@ -63,4 +65,39 @@ footer {
     margin-top: 90vh !important;
     background-color: rgb(34, 33, 33) !important;
     border-top: solid 0.1px grey !important;
+}
+
+
+/*LAYOUT RESPONSIVE*/
+
+
+@media (max-width: 1285px) {
+
+    body {
+        height: 100vh;
+    }
+
+    #leftCol {
+        display: none;
+    }
+
+    #middleCol {
+        max-height: 82vh;
+    }
+
+    #openRightCol {
+        bottom: 300px;
+    } 
+    
+    footer {
+        margin-top: 78vh !important;
+    }
+
+    #containerResponsive1285 {
+
+        margin-top: 90vh;
+        display: block !important;
+        position: absolute;
+    }
+
 }

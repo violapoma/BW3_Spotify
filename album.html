@@ -12,7 +12,6 @@
         defer></script>
     <script src="album.js" defer></script>
     <script src="sharedFiles/shared.js" defer></script>
-    <link rel="stylesheet" href="album.css">
     <link rel="stylesheet" href="sharedFiles/shared.css">
 </head>
 
@@ -27,18 +26,21 @@
 
             <nav class="col-lg-3 bg-black text-white" id="leftCol" style="min-height: 100vh;">
                 <div class="menuSection">
-                    <img src="assets/menu_9oxo0y8h65z5_64.png" alt="menu" style="margin-left: -20px; cursor: pointer;">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home" width="22px">
-                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Home</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="assets/seo_nuil7ltlrho1_64.png" alt="search" width="22px">
-                        <span class="fw-bold" style="font-size: small; cursor: pointer;">Cerca</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-3 mb-5">
-                        <img src="assets/library_i75r8dkewj7a_64.png" alt="library" width="22px">
-                        <span class="fw-bold" style="font-size: small; cursor: pointer;">La tua libreria</span>
+                    <div id="containerResponsive">
+                        <img src="assets/menu_9oxo0y8h65z5_64.png" alt="menu"
+                            style="margin-left: -20px; cursor: pointer;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home" width="22px">
+                            <span class="fw-bold" style="font-size: small; cursor: pointer;">Home</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="assets/seo_nuil7ltlrho1_64.png" alt="search" width="22px">
+                            <span class="fw-bold" style="font-size: small; cursor: pointer;">Cerca</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-5">
+                            <img src="assets/library_i75r8dkewj7a_64.png" alt="library" width="22px">
+                            <span class="fw-bold" style="font-size: small; cursor: pointer;">La tua libreria</span>
+                        </div>
                     </div>
 
 
@@ -69,7 +71,7 @@
                         <img src="assets/music_78qpg1p7g78l_16.png" alt="icon" height="25px" width="25px">
                         <img src="assets/rocket_bll8uocy9rxq_16.png" alt="icon" height="25px" width="25px">
                     </div>
-                    
+
                     <p>What's Going On - Marvin Gaye (1971)</p>
                     <div class="d-flex gap-2">
                         <p>Respect - Aretha Franklin (1967)</p>
@@ -92,7 +94,7 @@
                         <p>I Want to Hold Your Hand - The Beatles (1963)</p>
                         <img src="assets/bonfire_ppobp1re1tjy_16.png" alt="icon" width="25px" height="25px">
                     </div>
-                    
+
                     <p>Purple Haze - The Jimi Hendrix Experience (1967)</p>
                     <p>Maybellene - Chuck Berry (1955)</p>
                     <p>Hound Dog - Elvis Presley (1956)</p>
@@ -101,7 +103,7 @@
                         <p>Born to Run - Bruce Springsteen (1975)</p>
                         <img src="assets/fast_e03oo1mp6nu5_16.png" alt="icon" width="25px" height="25px">
                     </div>
-                    
+
                     <p>Be My Baby - The Ronettes (1963)</p>
                     <p>In My Life - The Beatles (1965)</p>
                     <p>People Get Ready - The Impressions (1965)</p>
@@ -122,9 +124,26 @@
 
             <!--COLONNA CENTRALE-->
 
-            <main class="col-lg-7" id="middleCol">
+            <main class="col-lg-7 py-3 px-4" id="middleCol"
+                style="background:linear-gradient(to bottom, #d3b610de 0%, #000000 60%); color: white;">
 
                 <!--CONTENUTO PRINCIPALE-->
+                <div class="d-flex justify-content-between">
+
+                    <div class="arrows">
+                        <img src="assets/assets_album/left_arrow_r1bd5ipaonpb_32.png" alt="left" width="40px"
+                            height="40px">
+                        <img src="assets/assets_album/right_arrow_bu6edlrvhzc0_32.png" alt="right" width="40px"
+                            height="40px">
+                    </div>
+
+                    <div class="user">
+                        <!--userIcon-->
+                    </div>
+
+                </div>
+
+                <!--CONTENUTO DINAMICO-->
 
             </main>
 
@@ -207,9 +226,27 @@
 
             <footer>
 
-                <h1>Sono un titolo di prova</h1>
+                <!-- <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/album/5M490pS7xcqY9V3lgKkrRE?utm_source=generator" width="100%"
+                    height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe> -->
 
             </footer>
+
+            <!--DUPLICATO PER LAYOUT RESPONSIVE-->
+            <div id="containerResponsive1285" class="container-fluid d-flex w-100"
+                style="border: solid 2px red; height: 100px; width: 100px;">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
 
 
         </div>
@@ -219,6 +256,12 @@
     <button id="openRightCol" class="btn btn-secondary">
         <img src="assets/add_friend_j2yr3kp2bsy6_32.png" alt="friends">
     </button>
+
+
+
+
+
+
 
 </body>
 
