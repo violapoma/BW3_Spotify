@@ -28,6 +28,7 @@ fetchAlbum(id)
 //funzione costruzione layout album
 function renderAlbum(album) {
 
+
     //contenitore immagine album e titoli
     const containerImgTitleAlbum = document.createElement('div')
     containerImgTitleAlbum.classList.add('d-flex', 'my-3')
