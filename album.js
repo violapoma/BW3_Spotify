@@ -32,10 +32,12 @@ function renderAlbum(album) {
     //contenitore immagine album e titoli
     const containerImgTitleAlbum = document.createElement('div')
     containerImgTitleAlbum.classList.add('d-flex', 'my-3')
+    containerImgTitleAlbum.id = 'containerImgTitleAlbum'
     middleCol.appendChild(containerImgTitleAlbum)
 
     //contenitore immagine album
     const containerImgAlbum = document.createElement('div')
+    containerImgAlbum.id = 'containerImgAlbum'
     containerImgTitleAlbum.appendChild(containerImgAlbum)
 
     //immagine album
@@ -48,17 +50,23 @@ function renderAlbum(album) {
     containerTitles.classList.add('mx-2', 'd-flex', 'flex-column', 'justify-content-end')
     containerImgTitleAlbum.appendChild(containerTitles)
 
+    //contenitore parola album
+    const containerAlbumWord = document.createElement('div')
+    containerAlbumWord.id = 'containerAlbumWord'
+    containerTitles.appendChild(containerAlbumWord)
+
     //paragrafo scritta album
     const albumWord = document.createElement('p')
     albumWord.innerText = 'Album'
     albumWord.className = 'fw-bold'
-    containerTitles.appendChild(albumWord)
+    containerAlbumWord.appendChild(albumWord)
 
     //titolo album
     const albumTitle = document.createElement('h1')
     albumTitle.innerText = album.title
     albumTitle.style.fontSize = '4.5vw'
     albumTitle.className = 'fw-bold'
+    albumTitle.id = 'albumTitle'
     containerTitles.appendChild(albumTitle)
 
     //contenitore icona artista e info
@@ -76,19 +84,30 @@ function renderAlbum(album) {
 
     //info album e artista
     const infoAlbum = document.createElement('p')
-    infoAlbum.innerText = `${album.artist.name} - ${album.release_date} - ${album.nb_tracks}, ${album.duration}`
+    infoAlbum.innerHTML = `${album.artist.name} <span id='spanDisplayNone'>- ${album.release_date} - ${album.nb_tracks}, ${album.duration}</span>`
     infoAlbum.className = 'fw-bold'
+    infoAlbum.id = 'infoAlbum'
     containerInfo.appendChild(infoAlbum)
 
     const hr = document.createElement('hr')
     hr.style.width = '120%'
     hr.style.marginLeft = '-10%'
+    hr.id = 'hr'
     middleCol.appendChild(hr)
+
+    //container visibile sotto i 715px (album e data rilascio)
+    const container715AlbumRelease = document.createElement('div')
+    middleCol.appendChild(container715AlbumRelease)
+
+    //testo container 715
+    const text715 = document.createElement('span')
+    text715.innerText = `Album - ${album.release_date}`
+    container715AlbumRelease.appendChild(text715)
 
     //contenitore icone (play - preferiti - download - menu)
     const containerButtons = document.createElement('div')
     containerButtons.classList.add('d-flex', 'align-items-center', 'py-2')
-    //containerButtons.style.borderTop = 'solid 1px rgba(110, 101, 14, 0.45)'
+    containerButtons.id = 'containerButtons'
     middleCol.appendChild(containerButtons)
 
 
@@ -97,12 +116,17 @@ function renderAlbum(album) {
     buttonPlay.style.border = 'none'
     buttonPlay.style.backgroundColor = 'transparent'
     buttonPlay.style.borderRadius = '50%'
+    buttonPlay.id = 'buttonPlay'
     containerButtons.appendChild(buttonPlay)
 
     //immagine play
     const play = document.createElement('img')
     play.src = 'assets/assets_album/play_4a582asoqmm8_64.png'
     buttonPlay.appendChild(play)
+
+    //container 715 icone (preferiti - download - menu)
+    const container715FavouriteDownloadMenu = document.createElement('div')
+    containerButtons.appendChild(container715FavouriteDownloadMenu)
 
     //preferiti
     const favourites = document.createElement('img')
@@ -111,7 +135,7 @@ function renderAlbum(album) {
     favourites.style.height = '52px'
     favourites.style.marginLeft = '10px'
     favourites.style.marginRight = '10px'
-    containerButtons.appendChild(favourites)
+    container715FavouriteDownloadMenu.appendChild(favourites)
 
     //download
     const download = document.createElement('img')
@@ -120,12 +144,12 @@ function renderAlbum(album) {
     download.style.height = '40px'
     download.style.marginLeft = '10px'
     download.style.marginRight = '10px'
-    containerButtons.appendChild(download)
+    container715FavouriteDownloadMenu.appendChild(download)
 
     //menu
     const menu = document.createElement('img')
     menu.src = 'assets/menu_9oxo0y8h65z5_64.png'
-    containerButtons.appendChild(menu)
+    container715FavouriteDownloadMenu.appendChild(menu)
 
 
     //funzione per generare tabella
@@ -139,39 +163,53 @@ function createTable(album) {
 
     const tableSongs = document.createElement('table')
     tableSongs.classList.add('table')
+    tableSongs.id = 'tableSongs'
     middleCol.appendChild(tableSongs)
 
     const tableHead = document.createElement('thead')
+    tableHead.id = 'tableHead'
     tableSongs.appendChild(tableHead)
 
     const trThead = document.createElement('tr')
+    trThead.id = 'trThead'
     tableHead.appendChild(trThead)
 
     const thNumberSong = document.createElement('th')
     thNumberSong.setAttribute('scope', 'col')
     thNumberSong.innerText = '#'
+    thNumberSong.id = 'thNumberSong'
     trThead.appendChild(thNumberSong)
 
     const thtitleSong = document.createElement('th')
     thtitleSong.setAttribute('scope', 'col')
     thtitleSong.innerText = 'TITOLO'
+    thtitleSong.id = 'thtitleSong'
     trThead.appendChild(thtitleSong)
 
     const thRiprodutions = document.createElement('th')
     thRiprodutions.setAttribute('scope', 'col')
     thRiprodutions.innerText = 'RANKING'
+    thRiprodutions.id = 'thRiprodutions'
     trThead.appendChild(thRiprodutions)
 
     const thTimeSongs = document.createElement('th')
     thTimeSongs.setAttribute('scope', 'col')
+    thTimeSongs.id = 'thTimeSongs'
     trThead.appendChild(thTimeSongs)
 
     const hour = document.createElement('img')
     hour.src = 'assets/assets_album/hour_bd34k7yasiil_16.png'
+    hour.id = 'hour'
     thTimeSongs.appendChild(hour)
 
     const tableBody = document.createElement('tbody')
     tableSongs.appendChild(tableBody)
+
+    //conteiner trasparente per faciliare lo scroll
+    const containerEmpty = document.createElement('div')
+    containerEmpty.style.height = '180px'
+    containerEmpty.style.backgroundColor = 'trasparent'
+    middleCol.appendChild(containerEmpty)
 
     album.tracks.data.forEach((element, index) => {
 
@@ -181,6 +219,7 @@ function createTable(album) {
         const thNumber = document.createElement('th')
         thNumber.innerText = index + 1
         thNumber.style.verticalAlign = "middle"
+        thNumber.id = 'thNumber'
         tableRow.appendChild(thNumber)
 
         const tdContanier = document.createElement('td')
@@ -204,12 +243,24 @@ function createTable(album) {
         const rank = document.createElement('td')
         rank.innerText = element.rank
         rank.style.verticalAlign = "middle"
+        rank.id = 'rank'
         tableRow.appendChild(rank)
 
         const time = document.createElement('td')
         time.innerText = element.duration
         time.style.verticalAlign = "middle"
+        time.id = 'time'
         tableRow.appendChild(time)
+
+        const tdMenu = document.createElement('td')
+        tableRow.appendChild(tdMenu)
+
+        //img menu sotto i 715px
+        const menuImg = document.createElement('img')
+        menuImg.src = 'assets/assets_album/istockphoto-1168504016-170667a.png'
+        menuImg.style.width = '32px'
+        menuImg.style.height = '32px'
+        tdMenu.appendChild(menuImg)
 
     })
 

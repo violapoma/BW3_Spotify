@@ -1,5 +1,3 @@
-
-
 body {
     min-height: 100vh;
     overflow: hidden;
@@ -97,19 +95,23 @@ footer {
     }
 
     footer {
-        margin-top: 77vh !important;
+        margin-top: 79vh !important;
         background-color: #8d8d8d;
         border-radius: 10px;
+        width: 97% !important;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #containerResponsive1285 {
-        margin-top: 89vh;
+        margin-top: 90vh;
         display: block !important;
         display: flex !important;
         justify-content: space-around;
         align-items: center;
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.774);
+        background-color: rgba(0, 0, 0, 0.849);
     }
 
 }

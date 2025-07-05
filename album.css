@@ -1,0 +1,51 @@
+@media (max-width: 1285px) {
+
+    #containerImgTitleAlbum {
+        display: block!important;
+    }
+
+    #containerAlbumWord {
+        display: none;
+    }
+
+    
+
+}
+
+@media (max-width: 715px) {
+
+    #albumTitle {
+        font-size: 30px!important;
+        margin-top: 20px;
+    }
+
+    #containerImgAlbum {
+        display: flex!important;
+        justify-content: center!important;
+    }
+
+    #infoAlbum {
+        margin-left: 7px!important;
+    }
+
+    #spanDisplayNone {
+        display: none;
+    }
+
+    #hr {
+        display: none;
+    }
+
+    #containerButtons {
+        justify-content: space-between;
+    }
+
+    #buttonPlay {
+        order: 1;
+    }
+
+    #trThead, #thNumberSong, #thtitleSong, #thRiprodutions, #thTimeSongs, #hour, #thNumber, #rank, #time {
+        display: none;
+    }
+
+}
