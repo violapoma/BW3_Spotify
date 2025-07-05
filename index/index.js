@@ -4,7 +4,7 @@ const albumEndpoint = 'album/'; // id
 const artistEndpoint = 'artist/'; // id
 
 const artistPage = '?id=';
-const albumPage = '?id=';
+const albumPage = '/album.html?id=';
 
 const firstArtist = 'sleep token';
 const suggestedArtistStrings = ['rammstein', 'red hot chili peppers', 'nirvana', 'gorillaz', 'billie eilish', 'linkin park'];
@@ -25,11 +25,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     moreSuggestionFill(),
   ]);
 
+  //qui per riempire il player
   audio.volume = 0.3;
   volumeFill.style.width = `${parseFloat(audio.volume * 100)}%`;
   console.log('idFirstAlbumSuggested', idFirstAlbumSuggested);
   fetchPlaylist();
-  //qui per riempire il player
 });
 
 async function fetchSearch(author) {
@@ -50,7 +50,6 @@ async function fetchArtist(id) {
   return artist;
 }
 
-
 //ret un album random da un artista
 function randomAlbumFormArtist(artist) {
   const length = artist.data.length;
@@ -65,15 +64,6 @@ function randomAlbumFormArtist(artist) {
   return artist.data[songIDX];
 }
 
-//COPIA E INCOLLA
-//da array di stringhe ad array dioggetti - ????
-async function fromStrToObj(toConvert) {
-  const converted = await Promise.all(
-    toConvert.map(artist => fetchSearch(artist))
-  );
-  console.log('[fromStrToObj]', converted);
-  return converted;
-}
 //random album di un artista !!!TODO SISTEMA PER RICICLO
 async function firstSuggestionFill() {
   const authorAll = await fetchSearch(firstArtist);
@@ -158,12 +148,10 @@ async function buildRecently() {
   const cardsDiv = document.createElement('div');
   cardsDiv.className = 'row';
 
-  // const suggestedArtists = fromStrToObj(suggestedArtistStrings);
   //da stringa ad oggetto artista con i brani suoi
   const suggestedArtists = await Promise.all(
     suggestedArtistStrings.map(artist => fetchSearch(artist))
   );
-  // console.log('suggestedArtists', suggestedArtists);
 
   //da oggetto a canzone random
   const suggestedRandom = suggestedArtists.map(artist => randomAlbumFormArtist(artist)); console.log('suggestedRandom', suggestedRandom);
@@ -218,9 +206,6 @@ async function moreSuggestionFill() {
 
   console.log('[moreSuggestionFill]artistArray', artistArray);
 
-  // const randomAlbum = converted.map(album => randomAlbumFormArtist(album));
-  // console.log(randomAlbum);
-
   const cards = artistArray.map(album => squreCard(album));
   console.log('moresuggestion', cards);
 
@@ -230,7 +215,7 @@ async function moreSuggestionFill() {
 //ritorna card di un artista
 function squreCard(elem) {
   const col = document.createElement('div');
-  col.className = 'col-3 me-1';
+  col.className = 'col-sm-6 col-lg-3 mb-sm-3';
 
   const card = document.createElement('div');
   card.className = 'card darkGreyBg h-100';
@@ -238,19 +223,15 @@ function squreCard(elem) {
   const cardImg = document.createElement('img');
   cardImg.src = elem.picture_medium;
   cardImg.alt = elem.name;
-  cardImg.className = 'card-img-top p-2 d-block rounded';
+  cardImg.className = 'card-img-top p-2 d-block rounded img-fluid';
 
   const cardBody = document.createElement('div');
-  cardBody.className = 'card-body';
+  cardBody.className = 'card-body darkGreyBg';
 
   const artistName = document.createElement('a');
   artistName.className = 'h3 card-title fs-6 fw-bold text-white';
   artistName.innerText = `${elem.name}`;
   artistName.href = artistPage + elem.id;
-
-  // const albumInfo = document.createElement('p');
-  // albumInfo.className = 'card-subtitle fs6 lightGreyText';
-  // albumInfo.innerText = `${elem.artist}`;
 
   cardBody.append(artistName);
   card.append(cardImg, cardBody);
@@ -287,14 +268,8 @@ async function fetchPlaylist() {
 
   console.log('[fetchPlaylist]playlist', playlist);
 
-  // const idx = Math.floor(Math.random()*playlist.length);
-  // console.log('[fetchPlaylist]idx', idx);
   const idx = generateIdx(playlist.length);
 
-  // audio.src=playlist[idx];
-  // audio.setAttribute('data-song-idx', idx);
-  // audio.setAttribute('data-total-tracks', playlist.length);
-  // console.log('[fetchPlaylist]audio', audio);
   setPlayer(playlist, idx);
 
   setSongPreview(album, idx);
@@ -312,7 +287,6 @@ async function fetchPlaylist() {
     setSongPreview(album, newIdx);
     playPauseBtn.click(); //così parte
   });
-  
 }
 
 function generateIdx(maxL){
