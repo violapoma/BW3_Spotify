@@ -2,6 +2,8 @@
 const queryParam = new URLSearchParams(window.location.search)
 const id = queryParam.get('id')
 
+let playList = []
+
 
 //costanti HTML
 const middleCol = document.getElementById('middleCol')
@@ -13,6 +15,16 @@ async function fetchAlbum(id) {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`)
         if (!response.ok) throw new Error('Errore nella fetch')
         const data = await response.json()
+        data.tracks.data.forEach(e => {
+            playList.push(e.preview)
+        })
+        console.log(playList)
+        nextBtn.addEventListener('click', () => {
+            const currentIdx = parseInt(audio.getAttribute('data-song-idx') + 1);
+            setPlayer(playList, currentIdx);
+            setSongPreview(data, currentIdx)
+            playPauseBtn.click(); //così parte
+        });
         console.log(data)
         renderAlbum(data)
     } catch (error) {
@@ -220,6 +232,13 @@ function createTable(album) {
         thNumber.innerText = index + 1
         thNumber.style.verticalAlign = "middle"
         thNumber.id = 'thNumber'
+        thNumber.style.cursor = 'pointer'
+        thNumber.addEventListener('click', () => {
+            setPlayer(playList, index)
+            setSongPreview(album, index)
+            playPauseBtn.click()
+        })
+
         tableRow.appendChild(thNumber)
 
         const tdContanier = document.createElement('td')
@@ -277,3 +296,147 @@ function createTable(album) {
     tableHead.style.borderBottom = 'solid 1px rgb(71, 71, 71)'
 
 }
+
+/************ GESTIONE PLAYER ************ */
+const audio = document.querySelector('#audioPlayer');
+const playPauseBtn = document.querySelector('#playPauseBtn');
+const playPauseIcon = playPauseBtn.querySelector('i');
+const progressFill = document.querySelector('#progressFill');
+const progressContainer = document.querySelector('#progressionContainer');
+const currentTimeSmall = document.querySelector('#currentTimeSmall');
+const totalTime = document.querySelector('#totalTime');
+const songPreviewDiv = document.querySelector('#songPreview');
+const nextBtn = document.querySelector('#nextBtn');
+const volumeContainer = document.querySelector('#volumeContainer');
+const volumeFill = document.querySelector('#volumeFill');
+
+async function fetchPlaylist() {
+    console.log('[fetchPlaylist]start')
+    console.log('[fetchPlaylist]idFirstAlbumSuggested', idFirstAlbumSuggested);
+
+    const resp = await fetch(baseEndpoint + albumEndpoint + idFirstAlbumSuggested);
+    const album = await resp.json();
+
+    console.log('[fetchPlayist]', album);
+
+    let playlist = [];
+    album.tracks.data.forEach(song =>
+        playlist.push(song.preview));
+
+    console.log('[fetchPlaylist]playlist', playlist);
+
+    // const idx = Math.floor(Math.random()*playlist.length);
+    // console.log('[fetchPlaylist]idx', idx);
+    const idx = generateIdx(playlist.length);
+
+    // audio.src=playlist[idx];
+    // audio.setAttribute('data-song-idx', idx);
+    // audio.setAttribute('data-total-tracks', playlist.length);
+    // console.log('[fetchPlaylist]audio', audio);
+    setPlayer(playlist, idx, data);
+
+
+
+
+}
+
+function generateIdx(maxL) {
+    const idx = Math.floor(Math.random() * maxL);
+    console.log('[generateIdx]idx', idx);
+    return idx;
+}
+
+function setPlayer(playlist, idx) {
+    audio.src = playlist[idx];
+    audio.setAttribute('data-song-idx', idx);
+    audio.setAttribute('data-total-tracks', playlist.length);
+    console.log('[setPlayer]audio', audio);
+}
+
+//toggle play e pause
+playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseIcon.classList.remove('bi-play-circle-fill');
+        playPauseIcon.classList.add('bi-pause-circle-fill');
+    } else {
+        audio.pause();
+        playPauseIcon.classList.remove('bi-pause-circle-fill');
+        playPauseIcon.classList.add('bi-play-circle-fill');
+    }
+});
+
+audio.addEventListener('timeupdate', () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progressFill.style.width = percent + '%';
+    currentTimeSmall.textContent = formatTime(audio.currentTime);
+});
+
+progressContainer.addEventListener('click', (e) => {
+    //rect contiene left, right, width, height, top, bottom della barra di progressione
+    const rect = progressContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const percent = clickX / width;
+    audio.currentTime = percent * audio.duration;
+});
+
+function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+audio.addEventListener('loadedmetadata', () => {
+    totalTime.textContent = formatTime(audio.duration);
+});
+
+function setSongPreview(album, songIDX) {
+    songPreviewDiv.innerHTML = '';
+    const wrapper = document.createElement('div');
+    wrapper.className = 'h-75 w-100 d-flex my-auto '
+
+    const imgDiv = document.createElement('div');
+    imgDiv.className = 'pe-3';
+
+    const img = document.createElement('img');
+    img.src = album.cover_medium;
+    img.alt = album.title;
+    img.className = 'squareImg';
+
+    imgDiv.appendChild(img);
+
+    const songInfo = document.createElement('div');
+    songInfo.className = 'text-white songInfo fs-6  pe-1';
+
+    const title = document.createElement('h6');
+    title.className = 'songTitle pe-1';
+    title.innerText = album.tracks.data[songIDX].title;
+    // title.innerText = 'titolo molto molto molto molto molto lungo';
+
+    const artist = document.createElement('small');
+    // artist.className('');
+    artist.textContent = album.artist.name; //no innertext
+
+    songInfo.append(title, artist);
+    wrapper.append(imgDiv, songInfo);
+    songPreviewDiv.append(wrapper);
+    requestAnimationFrame(() => { //aspeto che l'elemento sia nel DOM e poi calcolo la width
+        if (title.scrollWidth > songInfo.clientWidth) {
+            title.classList.add('scrolling');
+        }
+    });
+}
+
+
+volumeContainer.addEventListener('click', (e) => {
+    const rect = volumeContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const percent = clickX / width;
+
+    audio.volume = Math.min(Math.max(percent, 0), 1); // Clamp tra 0 e 1
+    volumeFill.style.width = (audio.volume * 100) + '%';
+
+});
