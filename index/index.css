@@ -1,0 +1,105 @@
+
+
+a {
+  text-decoration: none;
+}
+
+.lightGreyText {
+  color: var(--spotify-light-grey);
+}
+
+.darkBg {
+  background-color: var(--spotify-dark-bg);
+}
+
+.darkGreyBg {
+  background-color: var(--spotify-dark-grey-bg);
+}
+
+#middleCol {
+  background: #454343;
+  background: linear-gradient(180deg, rgba(69, 67, 67, 1) 0%, rgba(57, 56, 56, 1) 13%, rgba(43, 43, 43, 1) 27%, rgba(34, 34, 34, 1) 45%, rgba(25, 25, 25, 1) 55%);
+  background-attachment: fixed;
+  overflow-y: scroll; /*CONTROLLA*/
+  padding-bottom: 150px;
+}
+
+#firstSuggestion {
+  background: #454343;
+  background: linear-gradient(197deg, rgba(69, 67, 67, 1) 0%, rgba(43, 43, 43, 1) 48%, rgba(25, 25, 25, 1) 78%);
+  max-height: 300px;
+}
+#firstSuggestion > .row{
+  flex-wrap: nowrap;
+}
+
+#recentlyListened {
+  height: 250px;
+}
+
+.bgGreen {
+  background-color: var(--spotify-green);
+}
+.textGreen {
+  color: var(--spotify-green);
+}
+
+.bgGreen:hover {
+  background-color: var(--spotify-green-hover);
+}
+
+.bannerTitle {
+  font-size: clamp(3rem, 200%);
+}
+
+.bannerImg {
+  max-height: 200px;
+  width: auto;
+  margin: 1em 0;
+}
+
+.myBtn {
+  border-radius: 50px;
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  margin-right: 1.5em;
+}
+
+.squareImg {
+  padding: 0;
+  width: 70px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.albumBanner {
+  height: 70px;
+}
+
+.moreBanner {
+  height: 300px;
+}
+
+/*testo massimo su due righe*/
+.multiline-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.paddingDiv{
+  background-color: transparent;
+  height: 150px;
+}
+@media (min-width: 576px) {
+  .paddingDiv{
+    height: 300px;
+    background-color: red;
+  }
+
+}
+

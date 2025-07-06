@@ -1,5 +1,14 @@
+:root {
+    --spotify-green: #1DB954;
+    --spotify-green-hover: #1ED760;
+    --spotify-dark-bg: #121212;
+    --spotify-dark-grey-bg: #2C2C2C;
+    --spotify-grey-bg: #535353;
+    --spotify-light-grey: #B3B3B3;
+}
+
 body {
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -12,7 +21,7 @@ body {
 .scrollLeftSection {
     overflow-y: auto;
     flex-grow: 1;
-    max-height: 45vh;
+    max-height: 55vh;
 }
 
 .scrollLeftSection::-webkit-scrollbar {
@@ -27,7 +36,6 @@ body {
     overflow: auto;
     flex-grow: 1;
     max-height: 93vh;
-    /*modificata l'altezza per mostrare tutto il contenuto centrale*/
 }
 
 #middleCol::-webkit-scrollbar {
@@ -37,6 +45,8 @@ body {
 #middleCol::-webkit-scrollbar-thumb {
     background-color: #686868;
 }
+
+
 
 /*FINE STILE SCROLL-BAR*/
 
@@ -48,7 +58,8 @@ body {
 
 #openRightCol {
     position: fixed;
-    bottom: 150px;
+    top: 100px;
+    background-color: var(--spotify-dark-bg);
     right: 30px;
     z-index: 1000;
     display: none;
@@ -74,7 +85,7 @@ footer {
 @media (max-width: 1285px) {
 
     body {
-        height: 100vh;
+        min-height: 100vh;
     }
 
     #leftCol {
@@ -82,22 +93,143 @@ footer {
     }
 
     #middleCol {
-        max-height: 82vh;
+        max-height: 100vh;
     }
 
     #openRightCol {
         bottom: 300px;
-    } 
-    
+    }
+
+    #middleCol::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
     footer {
-        margin-top: 78vh !important;
+        margin-top: 79vh !important;
+        background-color: #8d8d8d;
+        border-radius: 10px;
+        width: 97% !important;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #containerResponsive1285 {
-
-        margin-top: 90vh;
-        display: block !important;
-        position: absolute;
+        display: flex !important;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.849);
     }
 
+    #containerResponsive1285 img {
+        width: 40px;
+        height: auto;
+    }
+}
+
+@media (max-width: 990px) {
+
+    #rightCol {
+        display: none;
+    }
+
+    #footerIcons {
+        display: none!important;
+    }
+}
+
+/* player sotto */
+/* footer {
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+} */
+
+.footerContent {
+    width: 98%;
+    height: 95px;
+}
+
+#progressionContainer {
+    width: 70%;
+    height: 8px;
+    background: var(--spotify-grey-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    background: white;
+    transition: width 0.1s linear;
+}
+
+small {
+    color: var(--spotify-grey-bg);
+}
+
+#player small {
+    padding: 0 1em;
+}
+
+.songInfo {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.songTitle {
+    display: inline-block;
+}
+
+.songTitle.scrolling {
+    animation: scrollText 10s linear infinite;
+}
+
+#songPreview .squareImg {
+    width: 65px;
+    height: 65px;
+}
+
+.songInfo:hover .songTitle {
+    animation-play-state: paused;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-30%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#volumeContainer {
+    width: 100px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: var(--spotify-grey-bg);
+}
+
+#volumeFill {
+    height: 100%;
+    border-radius: 5px;
+    background-color: white;
 }
