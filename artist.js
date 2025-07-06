@@ -2,7 +2,7 @@ const Urlparams = new URLSearchParams(window.location.search);
 const artistId = 412//Urlparams.get("id");
 const centerBody = document.querySelector("#middleCol");
 const listContainer = document.createElement("div");
-listContainer.style = "max-height: 330px; margin: 20px; overflow-y: hidden;";
+listContainer.style = "width: 80%; max-height: 330px; margin: 20px; overflow-y: hidden;";
 const songsList = document.createElement("ul");
 songsList.style = "list-style: none; padding: 0; margin: 0;";
 const buttonShowOther = document.createElement("button");
@@ -58,7 +58,7 @@ function createArtistPage(songsData) {
     let headerPage = document.innerHTML = `
         <div style="width: 100%; height: 400px; position: relative;">
                 <img src="${songsData[0].artist.picture_xl}" alt="${songsData[0].artist.name}" style="width: 100%; height: 100%;">
-                <h3 style="color: white; position: absolute; bottom: 10px; left: 20px;">${songsData[0].artist.name}</h3>
+                <h1 style="color: white; position: absolute; bottom: 10px; left: 20px;font-size: 4em;font-weight: bold;">${songsData[0].artist.name}</h3>
         </div>`;
     console.log(headerPage)
     centerBody.innerHTML = headerPage;
