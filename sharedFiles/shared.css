@@ -1,3 +1,12 @@
+:root {
+    --spotify-green: #1DB954;
+    --spotify-green-hover: #1ED760;
+    --spotify-dark-bg: #121212;
+    --spotify-dark-grey-bg: #2C2C2C;
+    --spotify-grey-bg: #535353;
+    --spotify-light-grey: #B3B3B3;
+}
+
 body {
     min-height: 100vh;
     overflow: hidden;
@@ -49,7 +58,8 @@ body {
 
 #openRightCol {
     position: fixed;
-    bottom: 150px;
+    top: 100px;
+    background-color: var(--spotify-dark-bg);
     right: 30px;
     z-index: 1000;
     display: none;
@@ -105,15 +115,16 @@ footer {
     }
 
     #containerResponsive1285 {
-        margin-top: 90vh;
-        display: block !important;
         display: flex !important;
         justify-content: space-around;
         align-items: center;
-        position: absolute;
         background-color: rgba(0, 0, 0, 0.849);
     }
 
+    #containerResponsive1285 img {
+        width: 40px;
+        height: auto;
+    }
 }
 
 @media (max-width: 990px) {
@@ -121,4 +132,104 @@ footer {
     #rightCol {
         display: none;
     }
+
+    #footerIcons {
+        display: none!important;
+    }
+}
+
+/* player sotto */
+/* footer {
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+} */
+
+.footerContent {
+    width: 98%;
+    height: 95px;
+}
+
+#progressionContainer {
+    width: 70%;
+    height: 8px;
+    background: var(--spotify-grey-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    background: white;
+    transition: width 0.1s linear;
+}
+
+small {
+    color: var(--spotify-grey-bg);
+}
+
+#player small {
+    padding: 0 1em;
+}
+
+.songInfo {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.songTitle {
+    display: inline-block;
+}
+
+.songTitle.scrolling {
+    animation: scrollText 10s linear infinite;
+}
+
+#songPreview .squareImg {
+    width: 65px;
+    height: 65px;
+}
+
+.songInfo:hover .songTitle {
+    animation-play-state: paused;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-30%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#volumeContainer {
+    width: 100px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: var(--spotify-grey-bg);
+}
+
+#volumeFill {
+    height: 100%;
+    border-radius: 5px;
+    background-color: white;
 }

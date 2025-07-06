@@ -228,17 +228,18 @@
 
             <footer>
 
-                <div class="footerContent rounded darkGreyBg row">
+                <div class="footerContent rounded row">
                     <div id="songPreview" class="col-sm-4 col-lg-3 d-flex align-items-center">
                     </div>
                     <div id="player" class="col-sm-8 col-lg-7">
                         <div class="d-flex justify-content-center align-items-center h-75">
-                            <button class="btn" id="shuffleBtn"><i class="bi bi-shuffle textGreen"></i></button>
+                            <button class="btn" id="shuffleBtn"><i class="bi bi-shuffle text-white"></i></button>
                             <button class="btn" id="prevBtn" disabled><i
                                     class="bi bi-caret-left-fill text-white"></i></button>
-                            <button class="btn" id="playPauseBtn"><i
+                            <button class="btn" id="playPauseBtn" disabled><i
                                     class="bi bi-play-circle-fill text-white fs-3"></i></button>
-                            <button class="btn" id="nextBtn"><i class="bi bi-caret-right-fill text-white"></i></button>
+                            <button class="btn" id="nextBtn" disabled><i
+                                    class="bi bi-caret-right-fill text-white"></i></button>
                             <button class="btn" id="repeatBtn"><i class="bi bi-repeat text-white"></i></button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center h-25">
@@ -251,7 +252,7 @@
                         <!-- audio src dinamico -->
                         <audio id="audioPlayer" src=""></audio>
                     </div>
-                    <div id="footerIcons" class="d-sm-none d-lg-flex col-2 align-items-center justify-content-evenly">
+                    <div id="footerIcons" class="d-lg-flex col-2 align-items-center justify-content-evenly">
                         <i class="bi bi-mic lightGreyText"></i>
                         <i class="bi bi-list-ul lightGreyText"></i>
                         <i class="bi bi-phone lightGreyText"></i>
@@ -263,23 +264,25 @@
                     </div>
                 </div>
 
+                <!--DUPLICATO PER LAYOUT RESPONSIVE-->
+                <div id="containerResponsive1285" class="container-fluid w-100 py-2 d-none mt-4">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home"></a>
+                        <p class="fw-bold text-white">Home</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/seo_nuil7ltlrho1_64.png" alt="search"></a>
+                        <p class="fw-bold text-white">Cerca</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/library_i75r8dkewj7a_64.png" alt="library"></a>
+                        <p class="fw-bold text-white">La tua libreria</p>
+                    </div>
+                </div>
+
             </footer>
 
-            <!--DUPLICATO PER LAYOUT RESPONSIVE-->
-            <div id="containerResponsive1285" class="container-fluid d-flex w-100 py-2">
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <a href="#"><img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home"></a>
-                    <p class="fw-bold text-white">Home</p>
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <a href="#"><img src="assets/seo_nuil7ltlrho1_64.png" alt="search"></a>
-                    <p class="fw-bold text-white">Cerca</p>
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <a href="#"><img src="assets/library_i75r8dkewj7a_64.png" alt="library"></a>
-                    <p class="fw-bold text-white">La tua libreria</p>
-                </div>
-            </div>
+
 
         </div>
 

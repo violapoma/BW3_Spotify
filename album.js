@@ -1,7 +1,7 @@
 //recupero parametro album
 const queryParam = new URLSearchParams(window.location.search)
 const id = queryParam.get('id')
-
+const prevBtn = document.getElementById('prevBtn')
 let playList = []
 
 
@@ -19,8 +19,16 @@ async function fetchAlbum(id) {
             playList.push(e.preview)
         })
         console.log(playList)
+        prevBtn.addEventListener('click', () => {
+            const currentIdx = parseInt(audio.getAttribute('data-song-idx')) - 1;
+            console.log(typeof currentIdx)
+            setPlayer(playList, currentIdx);
+            setSongPreview(data, currentIdx)
+            playPauseBtn.click();
+        })
         nextBtn.addEventListener('click', () => {
-            const currentIdx = parseInt(audio.getAttribute('data-song-idx') + 1);
+            const currentIdx = parseInt(audio.getAttribute('data-song-idx')) + 1;
+            console.log(typeof currentIdx)
             setPlayer(playList, currentIdx);
             setSongPreview(data, currentIdx)
             playPauseBtn.click(); //così parte
@@ -33,7 +41,11 @@ async function fetchAlbum(id) {
 
 }
 
-fetchAlbum(id)
+window.addEventListener('DOMContentLoaded', () => { 
+    audio.volume = 0.3
+    volumeFill.style.width = `${parseFloat(audio.volume * 100)}%`;
+    fetchAlbum(id)
+})
 
 
 
@@ -129,6 +141,12 @@ function renderAlbum(album) {
     buttonPlay.style.backgroundColor = 'transparent'
     buttonPlay.style.borderRadius = '50%'
     buttonPlay.id = 'buttonPlay'
+    buttonPlay.addEventListener('click', () => {
+        setPlayer(playList, 0)
+        setSongPreview(album, 0)
+        playPauseBtn.click()
+    }
+    )
     containerButtons.appendChild(buttonPlay)
 
     //immagine play
@@ -233,6 +251,7 @@ function createTable(album) {
         thNumber.style.verticalAlign = "middle"
         thNumber.id = 'thNumber'
         thNumber.style.cursor = 'pointer'
+        console.log(typeof index, index)
         thNumber.addEventListener('click', () => {
             setPlayer(playList, index)
             setSongPreview(album, index)
@@ -310,45 +329,10 @@ const nextBtn = document.querySelector('#nextBtn');
 const volumeContainer = document.querySelector('#volumeContainer');
 const volumeFill = document.querySelector('#volumeFill');
 
-async function fetchPlaylist() {
-    console.log('[fetchPlaylist]start')
-    console.log('[fetchPlaylist]idFirstAlbumSuggested', idFirstAlbumSuggested);
-
-    const resp = await fetch(baseEndpoint + albumEndpoint + idFirstAlbumSuggested);
-    const album = await resp.json();
-
-    console.log('[fetchPlayist]', album);
-
-    let playlist = [];
-    album.tracks.data.forEach(song =>
-        playlist.push(song.preview));
-
-    console.log('[fetchPlaylist]playlist', playlist);
-
-    // const idx = Math.floor(Math.random()*playlist.length);
-    // console.log('[fetchPlaylist]idx', idx);
-    const idx = generateIdx(playlist.length);
-
-    // audio.src=playlist[idx];
-    // audio.setAttribute('data-song-idx', idx);
-    // audio.setAttribute('data-total-tracks', playlist.length);
-    // console.log('[fetchPlaylist]audio', audio);
-    setPlayer(playlist, idx, data);
-
-
-
-
-}
-
-function generateIdx(maxL) {
-    const idx = Math.floor(Math.random() * maxL);
-    console.log('[generateIdx]idx', idx);
-    return idx;
-}
 
 function setPlayer(playlist, idx) {
     audio.src = playlist[idx];
-    audio.setAttribute('data-song-idx', idx);
+    audio.setAttribute('data-song-idx', parseInt(idx));
     audio.setAttribute('data-total-tracks', playlist.length);
     console.log('[setPlayer]audio', audio);
 }
@@ -393,6 +377,21 @@ audio.addEventListener('loadedmetadata', () => {
 });
 
 function setSongPreview(album, songIDX) {
+
+    playPauseBtn.removeAttribute('disabled')
+
+    if (songIDX == 0) {
+        prevBtn.setAttribute('disabled', true)
+    } else {
+        prevBtn.removeAttribute('disabled')
+    }
+
+    if (songIDX == playList.length - 1) {
+        nextBtn.setAttribute('disabled', true)
+    } else {
+        nextBtn.removeAttribute('disabled')
+    }
+
     songPreviewDiv.innerHTML = '';
     const wrapper = document.createElement('div');
     wrapper.className = 'h-75 w-100 d-flex my-auto '
