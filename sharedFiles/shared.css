@@ -35,7 +35,7 @@ body {
 #middleCol {
     overflow: auto;
     flex-grow: 1;
-    max-height: 93vh;
+    max-height: 90vh;
 }
 
 #middleCol::-webkit-scrollbar {
@@ -232,4 +232,21 @@ small {
     height: 100%;
     border-radius: 5px;
     background-color: white;
+}
+
+.btn:disabled,
+.btn.disabled {
+    border-color: transparent;
+}
+
+.lightGreyText {
+    color: var(--spotify-light-grey);
+}
+
+.darkBg {
+    background-color: var(--spotify-dark-bg);
+}
+
+.darkGreyBg {
+    background-color: var(--spotify-dark-grey-bg);
 }
