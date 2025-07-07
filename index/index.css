@@ -27,14 +27,14 @@ a {
 #firstSuggestion {
   background: #454343;
   background: linear-gradient(197deg, rgba(69, 67, 67, 1) 0%, rgba(43, 43, 43, 1) 48%, rgba(25, 25, 25, 1) 78%);
-  max-height: 300px;
+  min-height: fit-content;
 }
 #firstSuggestion > .row{
   flex-wrap: nowrap;
 }
 
 #recentlyListened {
-  height: 250px;
+  min-height: 250px;
 }
 
 .bgGreen {
@@ -91,10 +91,7 @@ a {
   min-width: 0;
 }
 
-.paddingDiv{
-  background-color: transparent;
-  height: 150px;
-}
+
 @media (min-width: 576px) {
   .paddingDiv{
     height: 300px;

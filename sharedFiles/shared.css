@@ -68,11 +68,10 @@ body {
 
 /*STILE FOOTER*/
 footer {
-    z-index: 10 !important;
     color: white !important;
     text-align: center !important;
     height: 120px !important;
-    position: absolute !important;
+    position: fixed !important;
     margin-top: 90vh !important;
     background-color: rgb(34, 33, 33) !important;
     border-top: solid 0.1px grey !important;
@@ -120,6 +119,10 @@ footer {
         align-items: center;
         background-color: rgba(0, 0, 0, 0.849);
     }
+    #containerResponsive1285 img {
+        width: 40px;
+        height: auto;
+    }
 
     #containerResponsive1285 img {
         width: 40px;
@@ -153,6 +156,7 @@ footer {
 .footerContent {
     width: 98%;
     height: 95px;
+    margin: auto;
 }
 
 #progressionContainer {
@@ -232,4 +236,8 @@ small {
     height: 100%;
     border-radius: 5px;
     background-color: white;
+}
+
+.disabled, button:disabled{
+    border: none;
 }

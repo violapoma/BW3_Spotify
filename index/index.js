@@ -3,7 +3,7 @@ const searchEndpoint = 'search?q=';
 const albumEndpoint = 'album/'; // id
 const artistEndpoint = 'artist/'; // id
 
-const artistPage = '?id=';
+const artistPage = '/artist.html?id=';
 const albumPage = '/album.html?id=';
 
 const firstArtist = 'sleep token';
@@ -166,7 +166,7 @@ async function buildRecently() {
 function buildOneRecent(artist) {
 
   const albumBanner = document.createElement('div');
-  albumBanner.className = 'col-4 mb-3 albumBanner';
+  albumBanner.className = 'col-12 col-sm-6 col-lg-4 mb-3 albumBanner';
 
   const linkTo = document.createElement('a');
   linkTo.href = albumPage + artist.album.id;
@@ -215,7 +215,7 @@ async function moreSuggestionFill() {
 //ritorna card di un artista
 function squreCard(elem) {
   const col = document.createElement('div');
-  col.className = 'col-sm-6 col-lg-3 mb-sm-3';
+  col.className = 'col-6 col-lg-3 mb-sm-3';
 
   const card = document.createElement('div');
   card.className = 'card darkGreyBg h-100';

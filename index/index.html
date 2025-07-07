@@ -23,7 +23,7 @@
 <body>
 
 
-  <div class="container-fluid" >
+  <div class="container-fluid">
 
     <div class="row darkBg">
 
@@ -132,10 +132,10 @@
         <!-- lavoro qui -->
         <div id="firstSuggestion" class="d-sm-none d-lg-block">
         </div>
-        <div id="recentlyListened">
+        <div id="recentlyListened" class="mb-5">
         </div>
         <div id="moreSuggestions">
-          <h2 class="fs-5 fw-bold text-white">Artisti che potrebbero interessarti</h2>
+          <h2 class="fs-5 fw-bold text-white mt-5">Artisti che potrebbero interessarti</h2>
           <div id="moreSuggestionsContent" class="row moreBanner"></div>
         </div>
         <!-- <div class="paddingDiv"></div> -->
@@ -219,7 +219,7 @@
       </aside>
 
       <footer>
-        <div class="footerContent rounded darkGreyBg row">
+        <div class="footerContent rounded row">
           <div id="songPreview" class="col-sm-4 col-lg-3 d-flex align-items-center">
           </div>
           <div id="player" class="col-sm-8 col-lg-7">
@@ -240,7 +240,7 @@
             <!-- audio src dinamico -->
             <audio id="audioPlayer" src=""></audio>
           </div>
-          <div id="footerIcons" class="d-sm-none d-lg-flex col-2 align-items-center justify-content-evenly">
+          <div id="footerIcons" class="d-none d-lg-flex col-2 align-items-center justify-content-evenly">
             <i class="bi bi-mic lightGreyText"></i>
             <i class="bi bi-list-ul lightGreyText"></i>
             <i class="bi bi-phone lightGreyText"></i>
@@ -251,32 +251,29 @@
             <i class="bi bi-arrows-angle-expand lightGreyText"></i>
           </div>
         </div>
+        <!--DUPLICATO PER LAYOUT RESPONSIVE-->
+        <div id="containerResponsive1285" class="container-fluid w-100 py-2 d-none mt-4">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <a href="#"><img src="/assets/home_page_2xkh4s4vf0xc_64.png" alt="home"></a>
+            <p class="fw-bold text-white">Home</p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <a href="#"><img src="/assets/seo_nuil7ltlrho1_64.png" alt="search"></a>
+            <p class="fw-bold text-white">Cerca</p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <a href="#"><img src="/assets/library_i75r8dkewj7a_64.png" alt="library"></a>
+            <p class="fw-bold text-white">La tua libreria</p>
+          </div>
+        </div>
       </footer>
-
-      <!--DUPLICATO PER LAYOUT RESPONSIVE-->
-      <div id="containerResponsive1285" class="container-fluid d-flex w-100 py-2">
-        <div style="display: flex; flex-direction: column; align-items: center;">
-          <a href="#"><img src="/assets/home_page_2xkh4s4vf0xc_64.png" alt="home"></a>
-          <p class="fw-bold text-white">Home</p>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
-          <a href="#"><img src="/assets/seo_nuil7ltlrho1_64.png" alt="search"></a>
-          <p class="fw-bold text-white">Cerca</p>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
-          <a href="#"><img src="/assets/library_i75r8dkewj7a_64.png" alt="library"></a>
-          <p class="fw-bold text-white">La tua libreria</p>
-        </div>
-      </div>
-
     </div>
 
     <button id="openRightCol" class="btn btn-secondary">
       <img src="/assets/add_friend_j2yr3kp2bsy6_32.png" alt="friends">
     </button>
-
+    <div class="paddingDiv"></div>
   </div>
-
 
 
 
