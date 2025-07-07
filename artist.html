@@ -10,9 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"
         defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="artist.js" defer></script>
-    <script src="sharedFiles/shared.js" defer></script>
-    <link rel="stylesheet" href="sharedFiles/shared.css">
+    <script src="/sharedFiles/shared.js" defer></script>
+    <link rel="stylesheet" href="/sharedFiles/shared.css">
+    <link rel="stylesheet" href="artist.css">
 </head>
 
 <body>
@@ -68,7 +70,7 @@
                         <img src="assets/music_78qpg1p7g78l_16.png" alt="icon" height="25px" width="25px">
                         <img src="assets/rocket_bll8uocy9rxq_16.png" alt="icon" height="25px" width="25px">
                     </div>
-                    
+
                     <p>What's Going On - Marvin Gaye (1971)</p>
                     <div class="d-flex gap-2">
                         <p>Respect - Aretha Franklin (1967)</p>
@@ -91,7 +93,7 @@
                         <p>I Want to Hold Your Hand - The Beatles (1963)</p>
                         <img src="assets/bonfire_ppobp1re1tjy_16.png" alt="icon" width="25px" height="25px">
                     </div>
-                    
+
                     <p>Purple Haze - The Jimi Hendrix Experience (1967)</p>
                     <p>Maybellene - Chuck Berry (1955)</p>
                     <p>Hound Dog - Elvis Presley (1956)</p>
@@ -100,7 +102,7 @@
                         <p>Born to Run - Bruce Springsteen (1975)</p>
                         <img src="assets/fast_e03oo1mp6nu5_16.png" alt="icon" width="25px" height="25px">
                     </div>
-                    
+
                     <p>Be My Baby - The Ronettes (1963)</p>
                     <p>In My Life - The Beatles (1965)</p>
                     <p>People Get Ready - The Impressions (1965)</p>
@@ -121,11 +123,15 @@
 
             <!--COLONNA CENTRALE-->
 
-            <main class="col-lg-7" id="middleCol" style="height: 100vh; padding: 20px; background-color: black;">
+            <main class="col-lg-7" id="middleCol" style="height: 100vh; padding: 0; background-color: rgb(34, 33, 33);">
 
                 <!--CONTENUTO PRINCIPALE-->
+               
+                
 
             </main>
+
+
 
             <!--COLONNA DESTRA-->
 
@@ -206,7 +212,57 @@
 
             <footer>
 
-                <h1>Sono un titolo di prova</h1>
+                <div class="footerContent rounded row">
+                    <div id="songPreview" class="col-sm-4 col-lg-3 d-flex align-items-center">
+                    </div>
+                    <div id="player" class="col-sm-8 col-lg-7">
+                        <div class="d-flex justify-content-center align-items-center h-75">
+                            <button class="btn" id="shuffleBtn"><i class="bi bi-shuffle text-white"></i></button>
+                            <button class="btn" id="prevBtn" disabled><i
+                                    class="bi bi-caret-left-fill text-white"></i></button>
+                            <button class="btn" id="playPauseBtn" ><i
+                                    class="bi bi-play-circle-fill text-white fs-3"></i></button>
+                            <button class="btn" id="nextBtn" disabled><i
+                                    class="bi bi-caret-right-fill text-white"></i></button>
+                            <button class="btn" id="repeatBtn"><i class="bi bi-repeat text-white"></i></button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center h-25">
+                            <small id="currentTimeSmall">0:00</small>
+                            <div id="progressionContainer" class="d-flex align-items-center">
+                                <div id="progressFill"></div>
+                            </div>
+                            <small id="totalTime">0:00</small>
+                        </div>
+                        <!-- audio src dinamico -->
+                        <audio id="audioPlayer" src=""></audio>
+                    </div>
+                    <div id="footerIcons" class="d-lg-flex col-2 align-items-center justify-content-evenly">
+                        <i class="bi bi-mic lightGreyText"></i>
+                        <i class="bi bi-list-ul lightGreyText"></i>
+                        <i class="bi bi-phone lightGreyText"></i>
+                        <i class="bi bi-volume-up lightGreyText fs-4"></i>
+                        <div id="volumeContainer" class="d-flex align-items-center">
+                            <div id="volumeFill"></div>
+                        </div>
+                        <i class="bi bi-arrows-angle-expand lightGreyText"></i>
+                    </div>
+                </div>
+
+                <!--DUPLICATO PER LAYOUT RESPONSIVE-->
+                <div id="containerResponsive1285" class="container-fluid w-100 py-2 d-none mt-4">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/home_page_2xkh4s4vf0xc_64.png" alt="home"></a>
+                        <p class="fw-bold text-white">Home</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/seo_nuil7ltlrho1_64.png" alt="search"></a>
+                        <p class="fw-bold text-white">Cerca</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <a href="#"><img src="assets/library_i75r8dkewj7a_64.png" alt="library"></a>
+                        <p class="fw-bold text-white">La tua libreria</p>
+                    </div>
+                </div>
 
             </footer>
 

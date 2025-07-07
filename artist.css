@@ -1,0 +1,9 @@
+.imgSongList :hover{
+        color: white!important;
+        display: flex!important;
+        width: 100%!important;
+        height: 100%!important;        
+        justify-content: center;
+        align-items: center!important;
+        background-color: #1a1a1a78!important;
+}
