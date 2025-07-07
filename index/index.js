@@ -8,7 +8,7 @@ const albumPage = '/album.html?id=';
 
 const firstArtist = 'sleep token';
 const suggestedArtistStrings = ['rammstein', 'red hot chili peppers', 'nirvana', 'gorillaz', 'billie eilish', 'linkin park'];
-const suggestedAlbumStrings = ['calcutta', 'lorna shore', 'arctic monkeys', 'ren'];
+const suggestedAlbumStrings = ['chapell roan', 'caparezza', 'tool', 'lorna shore', 'arctic monkeys', 'ren', 'paris paloma', 'la dispute'];
 
 const mainContent = document.querySelector('#mainContent');
 const firstSuggestionDiv = document.querySelector('#firstSuggestion');
@@ -110,7 +110,7 @@ function buildBanner(song) {
   const playBtn = document.createElement('button');
   playBtn.className = 'btn bgGreen myBtn';
   playBtn.innerText = 'Play';
-  playBtn.addEventListener('click', ()=>{
+  playBtn.addEventListener('click', () => {
     playPauseBtn.click();
   }); //si collega al player sotto
 
@@ -210,6 +210,11 @@ async function moreSuggestionFill() {
   console.log('moresuggestion', cards);
 
   moreSuggestionsContent.append(...cards);
+
+  const containerEmpty = document.createElement('div');
+  containerEmpty.style.height = '180px';
+  containerEmpty.style.backgroundColor = 'trasparent';
+  middleCol.appendChild(containerEmpty);
 }
 
 //ritorna card di un artista
@@ -279,7 +284,7 @@ async function fetchPlaylist() {
     const currentIdx = audio.getAttribute('data-song-idx');
     const totalSongs = audio.getAttribute('data-total-tracks');
     console.log('[newIdx]curridx', currentIdx, 'totalSongs', totalSongs);
-    do 
+    do
       newIdx = generateIdx(totalSongs);
     while (newIdx == parseInt(currentIdx));
     console.log('[newIdx]', newIdx);
@@ -289,14 +294,14 @@ async function fetchPlaylist() {
   });
 }
 
-function generateIdx(maxL){
-  const idx = Math.floor(Math.random()*maxL);
+function generateIdx(maxL) {
+  const idx = Math.floor(Math.random() * maxL);
   console.log('[generateIdx]idx', idx);
   return idx;
 }
 
-function setPlayer(playlist, idx){
-  audio.src=playlist[idx];
+function setPlayer(playlist, idx) {
+  audio.src = playlist[idx];
   audio.setAttribute('data-song-idx', idx);
   audio.setAttribute('data-total-tracks', playlist.length);
   console.log('[setPlayer]audio', audio);
@@ -323,7 +328,7 @@ audio.addEventListener('timeupdate', () => {
 
 progressContainer.addEventListener('click', (e) => {
   //rect contiene left, right, width, height, top, bottom della barra di progressione
-  const rect = progressContainer.getBoundingClientRect(); 
+  const rect = progressContainer.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const width = rect.width;
   const percent = clickX / width;
